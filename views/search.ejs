@@ -1,0 +1,31 @@
+<%- include("./partials/header") %>
+
+<div class="container text-center" style="margin-top: 100px;">
+
+    <form action="/research/search" method="post">
+        <div class="form-group">
+            <label for="InputSearch">Enter search query</label>
+            <input type="text" class="form-control text-center" name="query" style="width: 500px; margin: auto;"
+                name="search" id="InputSearch" required>
+            <small class="form-text text-muted">Enter two or more keywords for better results.</small>
+        </div>
+        <button type="submit" class="btn btn-success">Search</button>
+    </form>
+
+
+    <div class="row" style="margin:25px 50px 25px 50px;">
+        <% paragraphs.forEach(paragraph => { %>
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 1000px; margin-right: 10px; margin-left:10px;">
+            <div class="card-body">
+                <p class="card-text"> <%- paragraph.text %></p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+    <hr><a href="/research/index">
+        <button class="btn btn-link">Back to Homepage</button>
+    </a>
+</div>
+</div>
+
+<%- include("./partials/footer") %>

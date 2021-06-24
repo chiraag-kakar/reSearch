@@ -1,0 +1,39 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="container">
+    <div class="bg-light px-2">
+        <center><h2 class="display-4"><strong>reSearch</strong></h2></center>
+        <p class="lead">reSearch is a simple application that takes in multiple paragraphs(documents) of text, assigns a unique ID to each paragraph and stores the
+            words to paragraph mappings on an inverted index.Given a word to search for, it
+            lists out the top 10 paragraphs in which the word is present.
+            </p>
+        <hr><a href="/research/search">
+            <button class="btn btn-primary">Search</button>
+        </a><a href="/research/clear">
+            <button class="btn btn-secondary" type="reset">Clear</button>
+        </a>
+    </div>
+
+    <div>
+        <form action="/research/index" method="post">
+            <div class="form-group">
+                <label for="InputParagraphs"><b>Enter the Paragraphs (Documents) in the textarea below :</b></label>
+                <textarea class="form-control" id="InputParagraphs" name="paragraphs" rows="10" required></textarea>
+                <small class="form-text text-muted">Each paragraph should be separated by two new lines(\n\n).</small>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-secondary" type="reset">Reset</button>
+        </form><br><br>
+        <form action="/research/pdf" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="InputParagraphs">Upload PDF</label>
+                <input type="file" name="pdf" id="pdf" class="form-control" required>
+                <small>Upload a single pdf only</small>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-secondary" type="reset">Reset</button>
+        </form>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>
